@@ -5,12 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style2.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
     <title>Document</title>
 </head>
 <body>
     <div class="navbar">
         <div class="logo">
-            <img src="homelogo">
+            <img id="logo" src="homelogo.png">
         </div>
         <div class="links">
             <a href="#home">HOME</a>
@@ -21,7 +24,9 @@
     <div class="main">
         <div class="intro">
             <div class="bio">
-                Your one-stop solution for seamless exhibition and event management! Our platform streamlines stall booking, allotment, and space management, making it easier for organizers and exhibitors to connect and succeed. 
+                <div class="welcome-text">Welcome to Book Your Stall</div>
+                Your one-stop solution for seamless exhibition and event management! 
+                <br>Our platform streamlines stall booking, allotment, and space management, making it easier for organizers and exhibitors to connect and succeed. 
             </div>    
             <div class="tour">
                 <button class="button1">Take A Tour</button>
@@ -29,14 +34,17 @@
         </div>    
         <div class="signup">
             <form>
-                <div class="heading">Sign Up</div>
-                <input id="name" placeholder="Enter Your Name">
-                <input id="phone number" placeholder="Enter Your Phone Number">
-                <input id="email" placeholder="Enter Your E-mail Address">
-                <input id="password" placeholder="Set Your Password">
-                <input id="connfirmpass" placeholder="Confirm Your Password">
-                Already Have an Account? <br>
-                Login
+                <div class="loginsection">
+                    <div class="heading">Log In</div>
+                    <input id="phone number" placeholder="Enter Your Phone Number" type="text">
+                    <input id="password" placeholder="Enter Your Password" type="password">
+                    <div class="forgot"><a href="forgotpassword">Forgot Password?</a></div>
+                </div>
+                <div class="sta">
+                    <br> or<br>
+                    Don't Have an Account? <br>
+                </div>    
+                    <button id="signup">Sign Up</button>
             </form>
         </div>
     </div>
