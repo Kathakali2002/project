@@ -1,9 +1,12 @@
-*{
+/* Global Styles */
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
-.navbar {
+  }
+  
+  /* Desktop View */
+  .navbar {
     display: flex;
     flex-direction: row;
     gap: 90px;
@@ -11,42 +14,40 @@
     opacity: 0.7;
     color: white;
     padding: 10px;
-}
-
-.navbar a{
+  }
+  
+  .navbar a {
     text-decoration: none;
     font-weight: bolder;
     color: rgb(245, 238, 238);
     padding: 10px;
     gap: 60px;
-}
-
-.main{
+  }
+  
+  .main {
     display: flex;
     flex-direction: row;
     gap: 400px;
-}
-
-.intro{
+  }
+  
+  .intro {
     align-items: center;
     padding-top: 100px;
     margin-left: 100px;
     padding-bottom: 10px;
     gap: 20px;
-    
-}
-
-.intro button{
+  }
+  
+  .intro button {
     padding: 10px;
     background-color: rgb(0, 0, 0);
     color: white;
     opacity: 0.4;
     border-color: black;
     border-radius: 3px;
-
-}
-
-footer{
+  }
+  
+  footer {
     display: flex;
     flex-direction: column;
     bottom: 10px;
@@ -60,18 +61,18 @@ footer{
     height: 50px;
     text-align: center;
     padding: 10px;
-}
-.signup{
+  }
+  
+  .signup {
     display: flex;
     flex-direction: column;
     gap: 15px;
     margin-right: 100px;
     margin-top: 100px;
     border: 2px black;
-
-}
-
-.signup form{
+  }
+  
+  .signup form {
     display: flex;
     flex-direction: column;
     gap: 15px;
@@ -79,16 +80,92 @@ footer{
     border: 1px solid rgb(5, 5, 5);
     border-radius: 4px;
     align-items: center;
-
-}
-
-.signup form input{
+  }
+  
+  .signup form input {
     width: 300px;
     padding: 5px;
-}
-
-.heading{
+  }
+  
+  .heading {
     font-weight: 700;
-}
-
-
+  }
+  
+  /* Tablet View (768px - 1024px) */
+  @media (max-width: 1024px) {
+    .main {
+      flex-direction: column;
+      gap: 50px;
+    }
+    
+    .intro {
+      margin-left: 50px;
+    }
+    
+    .signup {
+      margin-right: 50px;
+      margin-top: 50px;
+    }
+  }
+  
+  /* Mobile View (480px - 767px) */
+  @media (max-width: 767px) {
+    .navbar {
+      flex-direction: column;
+      gap: 10px;
+      padding: 5px;
+    }
+    
+    .navbar a {
+      padding: 5px;
+    }
+    
+    .main {
+      flex-direction: column;
+      gap: 20px;
+    }
+    
+    .intro {
+      margin-left: 20px;
+      padding-top: 50px;
+    }
+    
+    .signup {
+      margin-right: 20px;
+      margin-top: 20px;
+    }
+    
+    .signup form input {
+      width: 200px;
+    }
+  }
+  
+  /* Smartphone View (320px - 479px) */
+  @media (max-width: 479px) {
+    .navbar {
+      padding: 2px;
+    }
+    
+    .navbar a {
+      padding: 2px;
+    }
+    
+    .main {
+      gap: 10px;
+    }
+    
+    .intro {
+      margin-left: 10px;
+      padding-top: 20px;
+    }
+    
+    .signup {
+      margin-right: 10px;
+      margin-top: 10px;
+    }
+    
+    .signup form input {
+      width: 150px;
+    }
+  }
+  
