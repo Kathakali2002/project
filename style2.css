@@ -10,7 +10,10 @@
     background-image: url('backgrounda.jpg');
     background-size: cover; /* Optional: Scale the image to cover the entire page */
     background-repeat: no-repeat; /* Optional: Prevent image repetition */
+    padding-bottom: 50px;
   }
+
+  
 
   /* Desktop View */
   .navbar {
@@ -18,8 +21,7 @@
     flex-direction: row;
     align-items: flex-end;
     gap: 50px;
-    background-color: black;
-    opacity: 0.7;
+    background-color: rgba(0, 0, 0, 1);
     color: white;
     padding: 5px;
 
@@ -31,48 +33,80 @@
 }
 
 
-
-
-  .navbar .links{
-    justify-content: space-between;
-  }
-
   .navbar a {
     text-decoration: none;
     font-weight: bolder;
     color: rgb(245, 238, 238);
     padding: 30px;
     gap: 50px;
+    font-family: Arial, Helvetica, sans-serif;
+    transition: all 0.3s ease;
 
   }
+
+  .navbar a:hover {
+    background: linear-gradient(to right, #fce837, #b86801);
+    border-radius: 10px;
+    padding: 6px 6px;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+  }
   
+  .navbar .search{
+      display: flex;
+      flex-direction: row;
+      background-color: rgb(255, 192, 56);
+      font-family: Arial, Helvetica, sans-serif;
+      margin-left: 350px;
+  }
+
+  .navbar .search input{   
+      height: 35px; 
+      width: 280px;
+
+  }
+  .navbar .search2{
+      padding: 5px;
+      margin-left: auto;
+    
+  }
+
   .main {
     display: flex;
     flex-direction: row;
-    gap: 400px;
+    gap: 50px;
   }
   
   .intro {
     align-items: center;
-    padding-top: 100px;
+    padding-top: 70px;
     margin-left: 100px;
     padding-bottom: 10px;
     gap: 20px;
     font-family: Arial, Helvetica, sans-serif;
-    color: aliceblue;
+    color: rgb(255, 255, 255);
   }
   
   .intro button {
     padding: 10px;
-    background-color: rgba(241, 241, 241, 0.3);
-    color: white;
-    border:none;
-    border-radius: 3px;
+    background-color: rgba(255, 218, 52, 0.1);
+    color: rgb(255, 255, 255);
+    border: 1px solid #f8d50d;
+    border-radius: 10px;
     margin-top: 60px;
-    padding-top: 15px;
+    padding-top: 12px;
     padding-left: 25px;
-    padding-bottom: 15px;
+    padding-bottom: 12px;
     padding-right: 25px;
+    font-size: medium;
+    transition: all 0.3s ease;
+  }
+
+  .intro button:hover {
+    background: linear-gradient(to right, #f8d50d, #001425);
+    border: none;
+    border-radius: 10px;
+    padding: 10px 10px;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
   }
   
   footer {
@@ -96,7 +130,7 @@
     flex-direction: column;
     gap: 15px;
     margin-right: 100px;
-    margin-top: 100px;
+    margin-top: 50px;
     border: 2px black;
   }
   
@@ -109,9 +143,24 @@
     padding-left: 20px;
     /* border: 0.2px solid rgb(241, 251, 253);*/
     border-radius: 4px;
-    background-color: rgba(218, 218, 218, 0.1);
+    background-color: rgba(80, 79, 79, 0.3);
     align-items: center;
     font-family: Arial, Helvetica, sans-serif;
+    transition: box-shadow 0.3s ease-in-out;
+  }
+
+  .signup form:focus-within {
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    border: 1px solid #fff;
+  }
+  
+  .blur-background {
+    filter: blur(5px);
+  }
+  
+  /* Add this class to body when login form is focused */
+  body.blur-active {
+    filter: blur(5px);
   }
 
   .signup .loginsection{
@@ -120,10 +169,46 @@
     gap: 20px;
       
   }
+
+  
+  .loginsection select{
+    width: 300px;
+    padding: 10px;
+  }
+  
+.loginsection label{
+  color: #fff;
+  font-size: small;
+}
+
+  .loginsection .one{
+    color: #fff;
+    font-weight: 200;
+    margin-bottom: 2px;
+  }
+
+  .loginsection .two{
+    color: #fff;
+    font-size: small;
+    margin-top: 2px;
+  }
+
+  #otpField {
+    display: none;
+}
   
   .signup form input {
     width: 300px;
     padding: 10px;
+  }
+
+  .signup form #logbtn {
+    width: 300px;
+    padding: 10px;
+    background: #fce837;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
   }
 
   .sta{
@@ -142,7 +227,7 @@
   .heading {
     font-weight: 700;
     font-size: 50px;
-    color: rgb(255, 241, 52);
+    color: rgb(255, 218, 52);
     font-family: "Archivo Black", sans-serif;
     font-weight: 200;
     font-style: normal;
@@ -151,7 +236,7 @@
 
   .signup .loginsection .forgot a{
       font-family: Arial, Helvetica, sans-serif;
-      color: rgb(255, 241, 52);
+      color: rgb(255, 218, 52);
       font-size: small;
       text-decoration: none;
 
@@ -161,8 +246,8 @@
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bolder;
     font-size: 30px;
-    color: rgb(255, 241, 52);
-    margin-bottom: 20px;
+    color: rgb(255, 218, 52);
+    margin-bottom: 40px;
     margin-top: 50px;
     white-space: nowrap; 
     overflow: hidden; 
