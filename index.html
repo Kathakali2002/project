@@ -19,12 +19,17 @@
             <a href="#home">HOME</a>
             <a href="#About Us">ABOUT US</a>
             <a href="Contact Us">CONTACT US</a>
+            <span></span>
         </div>    
+        <div class="search">
+            <input type="text" placeholder="Search .....">
+            <div class="search2">Search</div>
+        </div>
     </div>
     <div class="main">
         <div class="intro">
             <div class="bio">
-                <div class="welcome-text">Welcome to Book Your Stall</div>
+                <div class="welcome-text">Welcome to <br> Book Your Stall</div>
                 Your one-stop solution for seamless exhibition and event management! 
                 <br>Our platform streamlines stall booking, allotment, and space management, making it easier for organizers and exhibitors to connect and succeed. 
             </div>    
@@ -33,18 +38,28 @@
             </div>
         </div>    
         <div class="signup">
-            <form>
+            <form class="sform" id="otp-form" action="/send-otp" method="post">
                 <div class="loginsection">
                     <div class="heading">Log In</div>
-                    <input id="phone number" placeholder="Enter Your Phone Number" type="text">
-                    <input id="password" placeholder="Enter Your Password" type="password">
-                    <div class="forgot"><a href="forgotpassword">Forgot Password?</a></div>
+                    <span class="two">An OTP Will be sent to the entered email ID or phone number for secure login.</span>
+  <select name="Log In As" id="loginas">
+    <option value="" selected disabled hidden>Log In As</option>  
+    <option value="Organizer">Organizer</option>
+    <option value="Stall Keeper">Stall Keeper</option>
+    <option value="System Admin">System Admin</option>
+
+  </select>
+                      
+                    <input id="phoneNumber" placeholder="Enter Your Phone Number or Email ID" type="tel" required>
+                    <button id="logbtn" onclick="sendOTP()" type="submit">Send OTP</button>
+
+                    <div id="otpField" style="display: none;">
+                        <label for="otp">Enter OTP:</label>
+                        <input type="text" id="otp" name="otp" required pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" maxlength="10">
+                        <button id="verifyOTPButton" onclick="verifyOTP()">Verify OTP</button>
+                    </div>
+
                 </div>
-                <div class="sta">
-                    <br> or<br>
-                    Don't Have an Account? <br>
-                </div>    
-                    <button id="signup">Sign Up</button>
             </form>
         </div>
     </div>
@@ -53,5 +68,76 @@
         Project of CSBS 4th Year <br>
         Copyright © 2024 All Rights Reserved
     </footer>
+    <script src="node.js"></script>
+    <script>
+        const form = document.querySelector('.form');
+
+        form.addEventListener('focusin', () => {
+            document.body.classList.add('blur-active');
+        });
+
+        form.addEventListener('focusout', () => {
+            document.body.classList.remove('blur-active');
+        });
+
+        const dropdownArrow = document.querySelector('.dropdown-arrow');
+const dropdownOptions = document.getElementById('register-as-options');
+const inputField = document.getElementById('register-as');
+
+dropdownArrow.addEventListener('click', () => {
+  dropdownOptions.style.display = dropdownOptions.style.display === 'block' ? 'none' : 'block';
+});
+
+dropdownOptions.addEventListener('click', (e) => {
+  if (e.target.tagName === 'LI') {
+    inputField.value = e.target.textContent;
+    dropdownOptions.style.display = 'none';
+  }
+});
+
+//otp//
+
+document.addEventListener('DOMContentLoaded', () => {
+    const sendOTPForm = document.getElementById('otp-form');
+
+    if (sendOTPForm) {
+        sendOTPForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const email = sendOTPForm.elements.email.value;
+            const response = await fetch(`/api/sendOTP?email=${email}`);
+            const result = await response.json();
+            // console.log(result);
+            alert(result.message);
+            if (result.success) {
+                window.location.href = 'verifyOTP.html';
+            }
+        });
+    }
+});
+
+const sendOTPForm = document.getElementById('otp-form');
+
+sendOTPForm.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const phoneNumber = document.getElementById('phoneNumber').value;
+  try {
+    const response = await fetch('/send-otp', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ phoneNumber }),
+    });
+    const result = await response.json();
+    console.log(result);
+    if (result.success) {
+      alert('OTP sent successfully');
+    } else {
+      alert('Error sending OTP');
+    }
+  } catch (err) {
+    console.error(err);
+  }
+});
+
+    </script>
 </body>
 </html>
